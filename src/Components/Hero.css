@@ -1,0 +1,54 @@
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.hero-img::before {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url("../Assets/Pictures/coffeemachine1.jpg");
+    background-size: cover;
+    filter: brightness(33%);
+}
+
+.hero-content-container {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 55px;
+    position: absolute;
+    color: #F7F8F7;
+    padding-top: 50px;
+}
+
+.hero-h1 {
+    width: 290px;
+    font-size: 48px;
+    line-height: 45px;
+}
+
+.hero-p {
+    max-width: 25ch;
+    line-height: 19px;
+}
+
+.hero-button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

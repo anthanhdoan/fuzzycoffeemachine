@@ -1,0 +1,24 @@
+.product-filter {
+    margin: 70px auto 0 auto;
+    width: 340px;
+    height: 37px;
+    border: 1px solid #272C28;
+    border-radius: 5px;
+    font-size: 18px;
+    padding-left: 16px;
+    display: block;
+}
+
+.product-filter:focus {
+    outline: none;
+}
+
+.product-filter::placeholder {
+    font-size: 18px;
+    font-style: italic;
+    color: #96A299;
+}
+
+.product-filter::target-text {
+    color: blue;
+}
