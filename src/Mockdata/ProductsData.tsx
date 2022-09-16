@@ -3,6 +3,7 @@ const productsData = [
     id: 1,
     name: "Fuzzy Coffee Premium",
     description: "Lorem ipsum dolor sit amet est sit aliqua dolor do amet",
+    longDescription: "Lorem ipsum dolor sit amet est sit aliqua dolor do amet ipsum dolor sit est sit aliqua dolor. Lorem ipsum dolor sit amet est sit aliqua dolor do amet ipsum dolor sit est.",
     price: 129.0,
     currency: "€",
     images: [
@@ -18,6 +19,7 @@ const productsData = [
     id: 2,
     name: "Fuzzy Coffee Standard",
     description: "Lorem ipsum dolor sit amet est sit aliqua dolor do amet",
+    longDescription: "Lorem ipsum dolor sit amet est sit aliqua dolor do amet ipsum dolor sit est sit aliqua dolor. Lorem ipsum dolor sit amet est sit aliqua dolor do amet ipsum dolor sit est.",
     price: 99.0,
     currency: "€",
     images: [
@@ -33,6 +35,7 @@ const productsData = [
     id: 3,
     name: "Fuzzy Coffee Home",
     description: "Lorem ipsum dolor sit amet est sit aliqua dolor do amet",
+    longDescription: "Lorem ipsum dolor sit amet est sit aliqua dolor do amet ipsum dolor sit est sit aliqua dolor. Lorem ipsum dolor sit amet est sit aliqua dolor do amet ipsum dolor sit est.",
     price: 79.0,
     currency: "€",
     images: [

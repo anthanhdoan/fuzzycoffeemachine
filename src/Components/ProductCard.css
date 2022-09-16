@@ -3,7 +3,7 @@
     margin-bottom: 20px;
     border-radius: 10px;
     width: 340px;
-    box-shadow: 0 4px 10px 0px rgba(0,0,0,0.10);
+    box-shadow: 0 4px 10px 0px rgba(0, 0, 0, 0.10);
 }
 
 .product-grid {
@@ -36,7 +36,7 @@
 }
 
 .product-description {
-grid-column: span 3
+    grid-column: span 3
 }
 
 .product-price {
