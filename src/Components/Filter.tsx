@@ -6,9 +6,13 @@ interface IFilter {
   setFilterValue: Function;
 }
 
+/** Alias of React.ChangeEvent<HTMLInputElement> */
+interface Input extends React.ChangeEvent<HTMLInputElement> {
+}
+
 const Filter = (props: IFilter) => {
 
-  const filterHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const filterHandler = (e: Input) => {
     props.setFilterValue(e.target.value);
   };
 

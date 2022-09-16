@@ -25,7 +25,7 @@ const Navbar = () => {
           <Link to="/products" onClick={scrollToTop}>
             <BsGrid className="nav-icon"/>
           </Link>
-          <Link to="/checkout" onClick={scrollToTop}>
+          <Link to="/cart" onClick={scrollToTop}>
             <BsCart3 className="nav-icon"/>
           </Link>
         </div>

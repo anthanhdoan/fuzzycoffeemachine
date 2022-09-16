@@ -4,7 +4,10 @@ import Navbar from "./Components/Navbar";
 import Home from "./Pages/Home";
 import Products from "./Pages/Products";
 import ProductDetailPage from "./Pages/ProductDetailPage";
+import Cart from "./Pages/Cart";
 import Checkout from "./Pages/Checkout";
+import PaymentProvider from "./Pages/PaymentProvider";
+import PaymentStatus from "./Pages/PaymentStatus";
 
 const Routes = () => {
   return (
@@ -15,7 +18,10 @@ const Routes = () => {
           <Route path="/" element={<Home/>}/>
           <Route path="/products" element={<Products/>}/>
           <Route path="/products/:id" element={<ProductDetailPage/>}/>
-          <Route path="/cart" element={<Checkout/>}/>
+          <Route path="/cart" element={<Cart/>}/>
+          <Route path='/checkout' element={<Checkout/>}/>
+          <Route path='/payment-provider' element={<PaymentProvider/>}/>
+          <Route path='/payment-status' element={<PaymentStatus/>}/>
         </R>
       </Router>
   );

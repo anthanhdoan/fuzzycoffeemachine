@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 import {BsChevronLeft, BsChevronRight} from "react-icons/bs";
 import './Carousel.css'
 
@@ -27,28 +27,23 @@ const Carousel = (props: ICarouselProps) => {
   }
 
   const nextImage = () => {
+    // const l = props.product.images.length - 1;
+    // const next = activeImage < l ? activeImage + 1 : 0;
+    // setActiveImage(next);
     if (!activeImage && activeImage !== 0) return
     if (activeImage < props.product.images.length - 1) setActiveImage(prevImage => prevImage + 1)
     if (activeImage === props.product.images.length - 1) setActiveImage(0)
   }
 
-  useEffect(() => {
-    Array.from(document.querySelectorAll(".carousel-imagelist"))
-        .map((el) => el.classList.remove("carousel-active"))
-    document.querySelector(`#image-${activeImage}`)
-        ?.classList.add("carousel-active")
-  }, [activeImage])
-
-
   const renderImages = useMemo(() => {
     return props.product.images.map((image: string, index: number) => {
       return <img onClick={() => setActiveImage(index)}
-                  className="carousel-imagelist"
+                  className={`carousel-imagelist ${activeImage === index ? "carousel-active" : ""}`}
                   src={image}
                   alt="coffee machine"
                   key={index} id={`image-${index}`}/>
     })
-  }, [])
+  }, [activeImage])
 
   return (
       <div>
