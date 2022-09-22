@@ -21,7 +21,7 @@ const Filter = (props: IFilter) => {
         <input
             className="product-filter"
             type="text"
-            placeholder="Filter"
+            placeholder="Search"
             value={props.filterValue}
             onChange={filterHandler}
         />

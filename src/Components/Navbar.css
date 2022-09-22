@@ -9,14 +9,6 @@
     z-index: 2;
 }
 
-.nav-lightmode {
-    background-color: rgba(31, 61, 40, 0.1);
-    filter: brightness(20%);
-}
-
-.nav-darkmode {
-    background-color: rgba(253, 214, 186, 0.20);
-}
 
 .nav-menu {
     margin-right: 16px;
@@ -31,8 +23,31 @@
     color: #FBAF79;
 }
 
-.nav-icon:hover,
-.nav-icon:active {
+.nav-cart-icon {
+    position: relative;
+}
+
+.nav-cart-items {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    background: #FDD6BA;
+    color: #2C5638;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-5px, -5px)
+}
+
+.hide {
+    display: none;
+}
+
+.nav-icon-highlight {
     background-color: rgba(251, 175, 121, 0.2);
     border-radius: 5px;
 }
@@ -46,3 +61,10 @@
     font-size: 20px;
 }
 
+.nav-lightmode {
+    background-color: rgba(0, 0, 0, 0.66);
+}
+
+.nav-darkmode {
+    background-color: rgba(253, 214, 186, 0.25);
+}

@@ -1,15 +1,21 @@
-import React, {useMemo} from 'react';
+import React, {useContext, useMemo} from 'react';
 import {Link, useParams} from "react-router-dom";
 import productsData from "../Mockdata/ProductsData";
 import './ProductDetailPage.css'
-import {BsChevronLeft, BsChevronRight} from 'react-icons/bs'
 import Button, {EIntent} from "../Components/UI/Button";
 import Carousel from "../Components/Carousel";
+import {CartContext, ICartItems} from "../Contexts/CartContext";
 
 const ProductDetailPage = () => {
   let {id} = useParams()
   let currentProduct = productsData[Number(id) - 1]
 
+  const [cartItems, setCartItems, incrementCartItem] = useContext(CartContext);
+
+  const clickHandler = (e: React.MouseEvent) => {
+    e.preventDefault()
+    incrementCartItem(currentProduct)
+  }
 
   return (
       <>
@@ -30,7 +36,7 @@ const ProductDetailPage = () => {
           <Link to={"/products"}>
             <Button text="BACK" intent={EIntent.Transparent} className={"pdbtn-back"}/>
           </Link>
-          <Button text="ADD TO CART" intent={EIntent.Solid} className={"pdbtn-addtocart"}/>
+          <Button onClick={clickHandler} text="ADD TO CART" intent={EIntent.Solid} className="pdbtn-addtocart"/>
         </div>
       </>
   );

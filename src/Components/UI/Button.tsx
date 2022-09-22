@@ -14,16 +14,18 @@ export enum EIntent {
 interface IButtonProps extends IBaseProps {
   text: string;
   intent: EIntent;
+  onClick?: any;
 }
 
 const Button: React.FunctionComponent<IButtonProps> = (props) => {
   return (
-    <button
-      style={props.style}
-      className={`btn-default ${props.className} ${props.intent}`}
-    >
-      {props.text}
-    </button>
+      <button
+          style={props.style}
+          className={`btn-default ${props.className} ${props.intent}`}
+          onClick={props.onClick}
+      >
+        {props.text}
+      </button>
   );
 };
 

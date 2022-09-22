@@ -1,18 +1,26 @@
-import React from "react";
+import React, {useContext} from "react";
 import {BsCart3} from "react-icons/bs";
 import "./ProductCard.css";
-import {Link} from "react-router-dom";
+import {CartContext, ICartItems} from "../Contexts/CartContext";
 
-interface IProduct {
-  productId: number;
+export interface IProduct {
+  id: number;
   name: string;
   description: string;
+  longDescription: string;
   price: number;
   currency: string;
   images: Array<string>;
 }
 
 const ProductCard = (props: IProduct) => {
+  const [cartItems, setCartItems, incrementCartItem] = useContext(CartContext);
+
+  const clickHandler = (e: React.MouseEvent) => {
+    e.preventDefault()
+    incrementCartItem(props)
+  }
+
   return (
       <div className="product-card">
         <h3 className="product-title">
@@ -24,9 +32,10 @@ const ProductCard = (props: IProduct) => {
           <p className="product-price">
             {props.currency + props.price.toFixed(2).replace(".", ",")}
           </p>
-          <Link to={"/cart"} className="product-addtocart">
+          <button className="product-addtocart" onClick={clickHandler}>
             <BsCart3 style={{strokeWidth: 0.5}}/>
-          </Link>
+          </button>
+
         </div>
       </div>
   );
