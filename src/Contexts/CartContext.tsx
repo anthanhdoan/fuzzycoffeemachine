@@ -6,18 +6,44 @@ export interface ICartItems {
   amount: number;
 }
 
-const initialCartItemsState: Array<ICartItems> = [
-  {productId: 1, amount: 0},
-  {productId: 2, amount: 0},
-  {productId: 3, amount: 0}
-]
+//redo --> initial state empty array, push ID's on adding a product to cart
+// map over array to keep count of amount of ID's (ID & amount)
+// [{id: 123, amount: 0}]
+
+const initialCartItemsState: Array<ICartItems> = []
 
 export const CartContext = createContext<ICartItems[] | any>([])
 
 export const CartProvider = ({children}: { children: React.ReactNode }) => {
   const [cartItems, setCartItems] = useState<ICartItems[]>(initialCartItemsState);
 
-  // increment function
+  const getItemInCart = (productId: number): ICartItems | undefined => {
+    return cartItems.find((item) => item.productId === productId)
+  }
+
+  const addCartItem = (product: IProduct) => {
+    setCartItems([...cartItems, {productId: product.id, amount: 1}])
+  }
+
+  const updateCart = (product: IProduct, action: "increment" | "decrement") => {
+    const item = getItemInCart(product.id)
+    if (!item) {
+      addCartItem(product)
+      return
+    }
+    if (action === "increment") incrementCartItem(product)
+    if (action === "decrement" && item.amount === 1) {
+      removeFromCart(product.id)
+      return
+    }
+    if (action === "decrement") decrementCartItem(product)
+  }
+
+  const removeFromCart = (productId: number) => {
+    const items = cartItems.filter((item) => item.productId !== productId)
+    setCartItems(items)
+  }
+
   const incrementCartItem = (product: IProduct) => {
     setCartItems((prevCartItems: Array<ICartItems>) => {
       return prevCartItems.map((obj: ICartItems) => {
@@ -44,5 +70,5 @@ export const CartProvider = ({children}: { children: React.ReactNode }) => {
   }
 
   return (<CartContext.Provider
-      value={[cartItems, setCartItems, incrementCartItem, decrementCartItem]}>{children}</CartContext.Provider>)
+      value={[cartItems, setCartItems, updateCart]}>{children}</CartContext.Provider>)
 }

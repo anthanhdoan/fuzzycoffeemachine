@@ -1,6 +1,6 @@
-import React, {ReactNode, useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import './Cart.css'
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import Button, {EIntent} from "../Components/UI/Button";
 import {CartContext, ICartItems} from "../Contexts/CartContext";
 import productsData from "../Mockdata/ProductsData";
@@ -8,30 +8,19 @@ import {IProduct} from "../Components/ProductCard";
 
 const Cart = () => {
   const navigate = useNavigate();
-  const [cartItems, setCartItems, incrementCartItem, decrementCartItem] = useContext(CartContext);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [cartItems, setCartItems, updateCart] = useContext(CartContext);
 
-  const totalPrice = (): ReactNode => {
-    return (<p>{cartItems
-            .map((item: ICartItems) => item.amount * productsData[item.productId].price).reduce((prev: number, cur: number) => prev + cur, 0)}</p>
-    )
-  }
-
-  const decrementHandler = (product: IProduct) => {
-    decrementCartItem(product)
-  }
-  const incrementHandler = (product: IProduct) => {
-    incrementCartItem(product)
+  const totalPrice = (): string => {
+    return `€${cartItems
+        .map((item: ICartItems) => item.amount * productsData[item.productId - 1].price).reduce((prev: number, cur: number) => prev + cur, 0).toFixed(2).replace('.', ',')}`
   }
 
-  //  SET ITEM AMOUNT ON CHANGE OF INPUT
-  const setItemAmount = () => {
-  }
+
   const renderCartItems = () => {
     return cartItems.map((cartItem: ICartItems, i: number) => {
-      const productIndex: number = cartItem.productId - 1
-      const currentProduct: IProduct = productsData[productIndex]
+      const currentProduct: IProduct = productsData[cartItem.productId - 1]
       const totalItemPrice = `${currentProduct.currency + (currentProduct.price * cartItem.amount).toFixed(2).replace('.', ',')}`
-
 
       if (cartItem.amount > 0) {
         return (
@@ -40,10 +29,11 @@ const Cart = () => {
               <div className="cart-item-description">{currentProduct.longDescription}</div>
               <div className="cart-item-control">
                 <div className="cart-counter-container">
-                  <Button onClick={() => decrementHandler(currentProduct)} text="–" intent={EIntent.Solid}
+                  <Button onClick={() => updateCart(currentProduct, "decrement")} text="–" intent={EIntent.Solid}
                           className="cart-counter-button"/>
-                  <input onChange={setItemAmount} type="text" value={cartItem.amount} className="cart-counter-input"/>
-                  <Button onClick={() => incrementHandler(currentProduct)} text="+" intent={EIntent.Solid}
+                  <input type="text" value={cartItem.amount}
+                         className="cart-counter-input"/>
+                  <Button onClick={() => updateCart(currentProduct, "increment")} text="+" intent={EIntent.Solid}
                           className="cart-counter-button"/>
                 </div>
                 <div
@@ -62,17 +52,18 @@ const Cart = () => {
         <div className="cart-footer">
           <div className="cart-summary">
             <p className="cart-summary-articles-label">Total from articles</p>
-            <p className="cart-summary-articles-price">€Sum</p>
+            <p className="cart-summary-articles-price">{totalPrice()}</p>
             <p className="cart-summary-shipping-label">Shipping costs</p>
             <p className="cart-summary-shipping-price">€0,00</p>
             <div className="cart-summary-line"></div>
             <p className="cart-summary-total-label">Total</p>
             {/*<p className="cart-summary-total-price">{totalPrice()}</p>*/}
-            <p className="cart-summary-total-price">{'hi'}</p>
+            <p className="cart-summary-total-price">{totalPrice()}</p>
           </div>
           <div className="cart-buttons-container">
             <Button onClick={() => navigate(-1)} text="BACK" intent={EIntent.Transparent} className={"cartbtn-back"}/>
-            <Button text="CHECKOUT" intent={EIntent.Solid} className={"cartbtn-checkout"}/>
+            <Button onClick={() => navigate('/checkout')} text="CHECKOUT" intent={EIntent.Solid}
+                    className={"cartbtn-checkout"}/>
           </div>
         </div>
 

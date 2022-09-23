@@ -7,6 +7,7 @@
     top: 0;
     height: 70px;
     z-index: 2;
+    backdrop-filter: blur(5px);
 }
 
 
@@ -20,7 +21,7 @@
     height: 44px;
     width: 44px;
     padding: 6px;
-    color: #FBAF79;
+    /*color: #FBAF79;*/
 }
 
 .nav-cart-icon {
@@ -31,8 +32,8 @@
     width: 20px;
     height: 20px;
     font-size: 12px;
-    background: #FDD6BA;
-    color: #2C5638;
+    background: #FFF;
+    color: #272C28;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -62,9 +63,22 @@
 }
 
 .nav-lightmode {
-    background-color: rgba(0, 0, 0, 0.66);
+    /*background-color: rgba(0, 0, 0, 0.66);*/
+    background-color: rgba(31, 61, 40, 0.2);
+}
+
+.nav-icon-lightmode {
+    fill: #272C28;
+    stroke: #272C28;
+    color: #272C28;
 }
 
 .nav-darkmode {
     background-color: rgba(253, 214, 186, 0.25);
+}
+
+.nav-icon-darkmode {
+    fill: #FBAF79;
+    stroke: #FBAF79;
+    color: #FBAF79;
 }

@@ -22,24 +22,32 @@ const Navbar = () => {
     return totalCartItems(cartItems) < 1 ? 'hide' : 'nav-cart-items'
   }
 
-  const toggleContrast = () => {
-    if (pathname !== "/") {
-      return "nav-lightmode"
-    } else {
+  const toggleNavContrast = () => {
+    if (pathname === "/") {
       return "nav-darkmode"
+    } else {
+      return "nav-lightmode"
+    }
+  }
+
+  const toggleIconContrast = () => {
+    if (pathname === "/") {
+      return "nav-icon-darkmode"
+    } else {
+      return "nav-icon-lightmode"
     }
   }
 
   return (
-      <nav className={`nav-container ${toggleContrast()}`}>
+      <nav className={`nav-container ${toggleNavContrast()}`}>
         <Link to="/" onClick={scrollToTop}>
-          <Logo className="nav-logo-img"/>
+          <Logo className={`nav-logo-img ${toggleIconContrast()}`}/>
         </Link>
         <div className="nav-menu">
           <Link to="/products" onClick={scrollToTop}>
-            <BsGrid className={`nav-icon`}/>
+            <BsGrid className={`nav-icon ${toggleIconContrast()}`}/>
           </Link>
-          <Link to="/cart" onClick={scrollToTop} className="nav-cart-icon">
+          <Link to="/cart" onClick={scrollToTop} className={`nav-cart-icon ${toggleIconContrast()}`}>
             <BsCart3 className="nav-icon"/>
             <div
                 className={toggleItemBadge()}>{totalCartItems(cartItems)}</div>

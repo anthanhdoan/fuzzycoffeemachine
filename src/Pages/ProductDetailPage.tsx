@@ -10,11 +10,10 @@ const ProductDetailPage = () => {
   let {id} = useParams()
   let currentProduct = productsData[Number(id) - 1]
 
-  const [cartItems, setCartItems, incrementCartItem] = useContext(CartContext);
+  const [cartItems, setCartItems, updateCart] = useContext(CartContext);
 
   const clickHandler = (e: React.MouseEvent) => {
-    e.preventDefault()
-    incrementCartItem(currentProduct)
+    updateCart(currentProduct, "increment")
   }
 
   return (

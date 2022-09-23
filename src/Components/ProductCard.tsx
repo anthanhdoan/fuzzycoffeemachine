@@ -14,11 +14,11 @@ export interface IProduct {
 }
 
 const ProductCard = (props: IProduct) => {
-  const [cartItems, setCartItems, incrementCartItem] = useContext(CartContext);
+  const [cartItems, setCartItems, updateCart] = useContext(CartContext);
 
   const clickHandler = (e: React.MouseEvent) => {
     e.preventDefault()
-    incrementCartItem(props)
+    updateCart(props, "increment")
   }
 
   return (
