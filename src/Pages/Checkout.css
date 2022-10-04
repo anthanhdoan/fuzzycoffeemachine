@@ -50,24 +50,12 @@
     font-size: 16px;
 }
 
-.checkout-shipping-header {
-}
-
 .checkout-input-street {
     grid-column: 1/-1;
 }
 
-.checkout-input-postal {
-}
-
-.checkout-input-number {
-}
-
 .checkout-input-city {
     grid-column: 1/-1;
-}
-
-.checkout-payment-header {
 }
 
 .checkout-input-email {
@@ -80,10 +68,4 @@
 
 .checkout-input-card-number {
     grid-column: 1/-1;
-}
-
-.checkout-input-card-date {
-}
-
-.checkout-input-card-cvc {
 }

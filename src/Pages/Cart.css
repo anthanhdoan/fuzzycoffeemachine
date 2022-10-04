@@ -87,6 +87,16 @@
 .cartbtn-checkout {
     background-color: #2C5638;
     color: #F7F8F7;
+    border-radius: 50px;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Roboto;
+    padding: 0;
+}
+
+.cartbtn-checkout:disabled {
+    background-color: #c1c1c1;
 }
 
 .cart-item {
@@ -117,12 +127,15 @@
     gap: 16px;
 }
 
-.cart-counter-input {
+.cart-counter-label {
     width: 50px;
     height: 32px;
     text-align: center;
     border-radius: 5px;
     border: 1px solid #96A299;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cart-counter-button {

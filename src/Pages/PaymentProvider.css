@@ -1,0 +1,39 @@
+.pp-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.pp-header {
+    font-family: Roboto, sans-serif;
+    font-size: 24px;
+}
+
+.pp-btn {
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 50px;
+}
+
+.pp-success {
+    background-color: #2C5638;
+    color: #F7F8F7;
+}
+
+.pp-failure {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: rgba(255, 0, 0, 1);
+    border: 2px solid rgba(255, 0, 0, 1);
+}
+
+.pp-back {
+    color: #2C5638;
+    border: 2px solid #2C5638;
+}

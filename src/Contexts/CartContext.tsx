@@ -21,14 +21,15 @@ export const CartProvider = ({children}: { children: React.ReactNode }) => {
     return cartItems.find((item) => item.productId === productId)
   }
 
-  const addCartItem = (product: IProduct) => {
+  const addCartItem = (product: IProduct, amt: number) => {
     setCartItems([...cartItems, {productId: product.id, amount: 1}])
   }
-
-  const updateCart = (product: IProduct, action: "increment" | "decrement") => {
+  
+  type Options = "increment" | "decrement";
+  const updateCart = (product: IProduct, action: Options) => {
     const item = getItemInCart(product.id)
     if (!item) {
-      addCartItem(product)
+      addCartItem(product, 1)
       return
     }
     if (action === "increment") incrementCartItem(product)
@@ -70,5 +71,5 @@ export const CartProvider = ({children}: { children: React.ReactNode }) => {
   }
 
   return (<CartContext.Provider
-      value={[cartItems, setCartItems, updateCart]}>{children}</CartContext.Provider>)
+      value={[cartItems, setCartItems, updateCart, addCartItem]}>{children}</CartContext.Provider>)
 }

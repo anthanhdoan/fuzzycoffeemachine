@@ -21,7 +21,8 @@ const Routes = () => {
           <Route path="/cart" element={<Cart/>}/>
           <Route path='/checkout' element={<Checkout/>}/>
           <Route path='/payment-provider' element={<PaymentProvider/>}/>
-          <Route path='/payment-status' element={<PaymentStatus/>}/>
+          <Route path='/payment-success' element={<PaymentStatus/>}/>
+          <Route path='/payment-failure' element={<PaymentStatus/>}/>
         </R>
       </Router>
   );

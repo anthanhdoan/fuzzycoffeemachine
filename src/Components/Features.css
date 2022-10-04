@@ -41,6 +41,7 @@
 .feature-description {
     font-size: 14px;
     width: 200px;
+    padding-bottom: 5px;
 }
 
 .feature-image-container {

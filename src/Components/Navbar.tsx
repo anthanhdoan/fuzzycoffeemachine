@@ -22,32 +22,51 @@ const Navbar = () => {
     return totalCartItems(cartItems) < 1 ? 'hide' : 'nav-cart-items'
   }
 
-  const toggleNavContrast = () => {
-    if (pathname === "/") {
-      return "nav-darkmode"
-    } else {
-      return "nav-lightmode"
+  const toggleNavClasses = (path: string) => {
+    switch (path) {
+      case '/':
+        return "nav-darkmode"
+        break;
+      case '/payment-provider':
+        return "nav-hidden"
+        break;
+      case '/payment-success':
+        return "nav-darkmode"
+        break;
+      case '/payment-failure':
+        return "nav-darkmode"
+        break;
+      default:
+        return "nav-lightmode"
+
     }
   }
-
-  const toggleIconContrast = () => {
-    if (pathname === "/") {
-      return "nav-icon-darkmode"
-    } else {
-      return "nav-icon-lightmode"
+  const toggleIconContrast = (path: string) => {
+    switch (path) {
+      case '/':
+        return "nav-icon-darkmode"
+        break;
+      case '/payment-success':
+        return "nav-icon-darkmode"
+        break;
+      case '/payment-failure':
+        return "nav-icon-darkmode"
+        break;
+      default:
+        return "nav-icon-lightmode"
     }
   }
 
   return (
-      <nav className={`nav-container ${toggleNavContrast()}`}>
+      <nav className={`nav-container ${toggleNavClasses(pathname)}`}>
         <Link to="/" onClick={scrollToTop}>
-          <Logo className={`nav-logo-img ${toggleIconContrast()}`}/>
+          <Logo className={`nav-logo-img ${toggleIconContrast(pathname)}`}/>
         </Link>
         <div className="nav-menu">
           <Link to="/products" onClick={scrollToTop}>
-            <BsGrid className={`nav-icon ${toggleIconContrast()}`}/>
+            <BsGrid className={`nav-icon ${toggleIconContrast(pathname)}`}/>
           </Link>
-          <Link to="/cart" onClick={scrollToTop} className={`nav-cart-icon ${toggleIconContrast()}`}>
+          <Link to="/cart" onClick={scrollToTop} className={`nav-cart-icon ${toggleIconContrast(pathname)}`}>
             <BsCart3 className="nav-icon"/>
             <div
                 className={toggleItemBadge()}>{totalCartItems(cartItems)}</div>
