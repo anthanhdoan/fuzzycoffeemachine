@@ -5,7 +5,6 @@ import Button, {EIntent} from "../Components/UI/Button";
 import {CartContext, ICartItems} from "../Contexts/CartContext";
 import productsData from "../Mockdata/ProductsData";
 import {IProduct} from "../Components/ProductCard";
-import {BsTrash} from "react-icons/bs";
 
 const Cart = () => {
   const [disabledButton, setDisabledButton] = useState(true)

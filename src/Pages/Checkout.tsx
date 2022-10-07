@@ -20,6 +20,7 @@ const Checkout = () => {
   }
 
   const formSubmitHandler = (e: SyntheticEvent) => {
+    e.preventDefault()
     navigate('/payment-provider');
   }
 

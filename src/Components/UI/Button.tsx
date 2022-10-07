@@ -16,6 +16,7 @@ interface IButtonProps extends IBaseProps {
   intent: EIntent;
   onClick?: any;
   type?: "button" | "submit" | "reset";
+  onSubmit?: any;
 }
 
 const Button: React.FunctionComponent<IButtonProps> = (props) => {
@@ -25,6 +26,7 @@ const Button: React.FunctionComponent<IButtonProps> = (props) => {
           className={`btn-default ${props.className} ${props.intent}`}
           onClick={props.onClick}
           type={props.type}
+          onSubmit={props.onSubmit}
       >
         {props.text}
       </button>

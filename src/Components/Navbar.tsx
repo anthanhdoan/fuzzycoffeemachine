@@ -5,6 +5,7 @@ import {Link, useLocation} from "react-router-dom";
 import scrollToTop from "../Utility/ScrollToTop";
 import {useContext} from "react";
 import {CartContext, ICartItems} from "../Contexts/CartContext";
+import {unstable_renderSubtreeIntoContainer} from "react-dom";
 
 const Navbar = () => {
   const [cartItems] = useContext(CartContext);
@@ -58,21 +59,25 @@ const Navbar = () => {
   }
 
   return (
-      <nav className={`nav-container ${toggleNavClasses(pathname)}`}>
-        <Link to="/" onClick={scrollToTop}>
-          <Logo className={`nav-logo-img ${toggleIconContrast(pathname)}`}/>
-        </Link>
-        <div className="nav-menu">
-          <Link to="/products" onClick={scrollToTop}>
-            <BsGrid className={`nav-icon ${toggleIconContrast(pathname)}`}/>
+      <div className="tb-container">
+
+        <nav className={`nav-container ${toggleNavClasses(pathname)}`}>
+          <Link to="/" onClick={scrollToTop}>
+            <Logo className={`nav-logo-img ${toggleIconContrast(pathname)}`}/>
           </Link>
-          <Link to="/cart" onClick={scrollToTop} className={`nav-cart-icon ${toggleIconContrast(pathname)}`}>
-            <BsCart3 className="nav-icon"/>
-            <div
-                className={toggleItemBadge()}>{totalCartItems(cartItems)}</div>
-          </Link>
-        </div>
-      </nav>
+          <div className="nav-menu">
+            <Link to="/products" onClick={scrollToTop}>
+              <BsGrid className={`nav-icon ${toggleIconContrast(pathname)}`}/>
+            </Link>
+            <Link to="/cart" onClick={scrollToTop} className={`nav-cart-icon ${toggleIconContrast(pathname)}`}>
+              <BsCart3 className="nav-icon"/>
+              <div
+                  className={toggleItemBadge()}>{totalCartItems(cartItems)}</div>
+            </Link>
+          </div>
+        </nav>
+      </div>
+
   );
 };
 

@@ -84,3 +84,20 @@
     stroke: #FBAF79;
     color: #FBAF79;
 }
+
+@media (min-width: 576px) {
+    .tb-container {
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-container {
+        background-color: rgba(6, 0, 193, 0.25);
+        max-width: 1000px;
+    }
+}
+
+
+@media (min-width: 1200px) {
+}

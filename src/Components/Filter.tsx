@@ -12,7 +12,7 @@ interface Input extends React.ChangeEvent<HTMLInputElement> {
 
 const Filter = (props: IFilter) => {
 
-  const filterHandler = (e: Input) => {
+  const filterHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     props.setFilterValue(e.target.value);
   };
 

@@ -6,7 +6,7 @@
     top: 0;
     background-size: cover;
     background-image: url("../Assets/Pictures/coffeebeans.jpg");
-    filter: brightness(25%) blur(4px);
+    filter: brightness(40%) blur(4px);
     z-index: -2;
     box-shadow: 0 0 0 5px #272C28;
 }

@@ -6,10 +6,6 @@ export interface ICartItems {
   amount: number;
 }
 
-//redo --> initial state empty array, push ID's on adding a product to cart
-// map over array to keep count of amount of ID's (ID & amount)
-// [{id: 123, amount: 0}]
-
 const initialCartItemsState: Array<ICartItems> = []
 
 export const CartContext = createContext<ICartItems[] | any>([])
@@ -24,7 +20,7 @@ export const CartProvider = ({children}: { children: React.ReactNode }) => {
   const addCartItem = (product: IProduct, amt: number) => {
     setCartItems([...cartItems, {productId: product.id, amount: 1}])
   }
-  
+
   type Options = "increment" | "decrement";
   const updateCart = (product: IProduct, action: Options) => {
     const item = getItemInCart(product.id)
@@ -57,7 +53,6 @@ export const CartProvider = ({children}: { children: React.ReactNode }) => {
     })
   }
 
-  // decrement function --> SAME BUT ADD IN LOGIC FOR DECREMENT IF AMOUNT < 1
   const decrementCartItem = (product: IProduct) => {
     setCartItems((prevCartItems: Array<ICartItems>) => {
       return prevCartItems.map((obj: ICartItems) => {

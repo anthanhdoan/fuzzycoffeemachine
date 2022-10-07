@@ -27,9 +27,6 @@ const Carousel = (props: ICarouselProps) => {
   }
 
   const nextImage = () => {
-    // const l = props.product.images.length - 1;
-    // const next = activeImage < l ? activeImage + 1 : 0;
-    // setActiveImage(next);
     if (!activeImage && activeImage !== 0) return
     if (activeImage < props.product.images.length - 1) setActiveImage(prevImage => prevImage + 1)
     if (activeImage === props.product.images.length - 1) setActiveImage(0)
