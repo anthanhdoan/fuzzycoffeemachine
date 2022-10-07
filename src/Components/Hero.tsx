@@ -16,9 +16,8 @@ const Hero = () => {
 
   return (
       <div className="hero-container">
-        <div className="hero-img"/>
         <div className="hero-content-container">
-          <h1 className="hero-h1">Your coffee Our passion</h1>
+          <h1 className="hero-h1">Your coffee... Our passion!</h1>
           <p className="hero-p">
             Local start-up of a small team of coffee enthusiasts deserunt ullamco
             est sit aliqua dolor do amet sint. Velit officia consequat duis enim.

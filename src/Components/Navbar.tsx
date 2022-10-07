@@ -59,9 +59,8 @@ const Navbar = () => {
   }
 
   return (
-      <div className="tb-container">
-
-        <nav className={`nav-container ${toggleNavClasses(pathname)}`}>
+      <div className={`nav-wrapper ${toggleNavClasses(pathname)}`}>
+        <nav className={`nav-container`}>
           <Link to="/" onClick={scrollToTop}>
             <Logo className={`nav-logo-img ${toggleIconContrast(pathname)}`}/>
           </Link>
