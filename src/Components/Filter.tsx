@@ -17,15 +17,13 @@ const Filter = (props: IFilter) => {
   };
 
   return (
-      <div style={{width: "100%", margin: "20px 0"}}>
-        <input
-            className="product-filter"
-            type="text"
-            placeholder="Search"
-            value={props.filterValue}
-            onChange={filterHandler}
-        />
-      </div>
+      <input
+          className="product-filter"
+          type="text"
+          placeholder="Search"
+          value={props.filterValue}
+          onChange={filterHandler}
+      />
   );
 };
 

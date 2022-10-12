@@ -31,9 +31,13 @@ const Products = () => {
   }, [filterValue]);
 
   return (
-      <div className="products">
+      <div className="products-wrapper">
         <Filter filterValue={filterValue} setFilterValue={setFilterValue}/>
-        {productCards}
+        <div className="products-container">
+          <div className="products">
+            {productCards}
+          </div>
+        </div>
         <Footer/>
       </div>
   );

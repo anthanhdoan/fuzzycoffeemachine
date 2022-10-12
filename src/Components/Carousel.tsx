@@ -43,7 +43,7 @@ const Carousel = (props: ICarouselProps) => {
   }, [activeImage])
 
   return (
-      <div>
+      <div className="carousel-wrapper">
         <div className="carousel">
           <button onClick={prevImage}
                   className="carousel-button cbtn-prev"
@@ -66,7 +66,7 @@ const Carousel = (props: ICarouselProps) => {
               marginLeft: "3px"
             }}/>
           </button>
-          <div className="product-detail-image-container">
+          <div className="carousel-image-container">
             {renderImages}
           </div>
         </div>

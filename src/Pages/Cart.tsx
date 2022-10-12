@@ -52,28 +52,29 @@ const Cart = () => {
   }
 
   return (
-      <div className="cart-container">
-        <h1 className="cart-header"><p>Shopping Cart</p></h1>
-        {renderCartItems()}
-        <div className="cart-footer">
-          <div className="cart-summary">
-            <p className="cart-summary-articles-label">Total from articles</p>
-            <p className="cart-summary-articles-price">{totalPrice()}</p>
-            <p className="cart-summary-shipping-label">Shipping costs</p>
-            <p className="cart-summary-shipping-price">€0,00</p>
-            <div className="cart-summary-line"></div>
-            <p className="cart-summary-total-label">Total</p>
-            {/*<p className="cart-summary-total-price">{totalPrice()}</p>*/}
-            <p className="cart-summary-total-price">{totalPrice()}</p>
-          </div>
-          <div className="cart-buttons-container">
-            <Button onClick={() => navigate(-1)} text="BACK" intent={EIntent.Transparent} className={"cartbtn-back"}/>
-            <button onClick={() => navigate('/checkout')} className={"cartbtn-checkout"}
-                    disabled={disabledButton}>CHECKOUT
-            </button>
+      <div className="cart-wrapper">
+        <div className="cart-container">
+          <h1 className="cart-header"><p>Shopping Cart</p></h1>
+          {renderCartItems()}
+          <div className="cart-footer">
+            <div className="cart-summary">
+              <p className="cart-summary-articles-label">Total from articles</p>
+              <p className="cart-summary-articles-price">{totalPrice()}</p>
+              <p className="cart-summary-shipping-label">Shipping costs</p>
+              <p className="cart-summary-shipping-price">€0,00</p>
+              <div className="cart-summary-line"></div>
+              <p className="cart-summary-total-label">Total</p>
+              {/*<p className="cart-summary-total-price">{totalPrice()}</p>*/}
+              <p className="cart-summary-total-price">{totalPrice()}</p>
+            </div>
+            <div className="cart-buttons-container">
+              <Button onClick={() => navigate(-1)} text="BACK" intent={EIntent.Transparent} className={"cartbtn-back"}/>
+              <button onClick={() => navigate('/checkout')} className={"cartbtn-checkout"}
+                      disabled={disabledButton}>CHECKOUT
+              </button>
+            </div>
           </div>
         </div>
-
       </div>
   );
 };

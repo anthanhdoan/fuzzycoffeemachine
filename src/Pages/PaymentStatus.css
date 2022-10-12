@@ -14,12 +14,13 @@
 
 .payment-status-container {
     padding: 20px;
-    margin: 90px 20px 20px 20px;
+    margin: 90px auto 20px auto;
     background-color: #FFFFFF;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 340px;
 }
 
 .ps-header,

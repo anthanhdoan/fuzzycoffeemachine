@@ -1,33 +1,16 @@
-.checkout-buttons-container {
-    position: fixed;
-    width: 100%;
-    bottom: 25px;
-    padding: 0px 20px;
+.checkout-wrapper {
+    width: 100vw;
     display: flex;
-    justify-content: space-between;
-}
-
-.checkout-btn-cancel, .checkout-btn-continue {
-    min-width: 160px;
-}
-
-.checkout-btn-cancel {
-    margin-right: 15px;
-    color: #2C5638;
-    border-color: #2C5638;
-}
-
-.checkout-btn-continue {
-    background-color: #2C5638;
-    color: #F7F8F7;
+    justify-content: center;
 }
 
 .checkout-form-container {
-    margin: 70px 20px 0 20px;
+    margin: 70px 0 0 0;
     display: grid;
     grid-template-columns: 160px 160px;
     grid-template-rows: repeat(9, auto);
-    grid-gap: 16px;
+    grid-gap: 20px;
+    grid-row-gap: 16px;
 }
 
 .checkout-header {
@@ -68,4 +51,36 @@
 
 .checkout-input-card-number {
     grid-column: 1/-1;
+}
+
+.checkout-buttons-container {
+    position: fixed;
+    width: 340px;
+    bottom: 25px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.checkout-btn-cancel, .checkout-btn-continue {
+    min-width: 160px;
+}
+
+.checkout-btn-cancel {
+    color: #2C5638;
+    border-color: #2C5638;
+}
+
+.checkout-btn-continue {
+    background-color: #2C5638;
+    color: #F7F8F7;
+}
+
+@media (min-width: 900px) {
+    /*.checkout-wrapper {*/
+    /*    width: 100vw;*/
+    /*    display: flex;*/
+    /*    justify-content: center;*/
+    /*}*/
 }

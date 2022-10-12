@@ -20,7 +20,7 @@ const Features = () => {
             <div className="feature-image-container image-right">
               <img
                   className="feature-image"
-                  src={require("../Assets/Pictures/coffeemachine2edit.jpg")}
+                  src={require("../Assets/Pictures/coffeemachine2.jpg")}
                   alt=""
               />
             </div>

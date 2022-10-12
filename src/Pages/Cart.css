@@ -1,6 +1,13 @@
+.cart-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .cart-container {
     margin-top: 70px;
     min-height: calc(100vh - 70px);
+    max-width: 1000px;
+    width: 100%
 }
 
 .cart-header {
